@@ -26,7 +26,6 @@
 	<context:component-scan base-package="kh.mclass.test1r" >
 	</context:component-scan>
 	
-	<tx:annotation-driven/>
 
 	
 </beans:beans>

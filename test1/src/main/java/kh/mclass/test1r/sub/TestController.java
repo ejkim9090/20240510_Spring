@@ -24,14 +24,6 @@ public class TestController {
 	@Autowired
 	private TestService testService;
 	
-	@Autowired
-	@Qualifier(value = "testDto3")
-	private TestDto testDto3;
-	
-	@Value("testDto3.a2")
-	private String testA2;	
-	
-	
 	//@RequestMapping(method = RequestMethod.GET, path = "/testget")
 	@GetMapping("/test")
 	public String method1(
@@ -40,10 +32,6 @@ public class TestController {
 			HttpSession ss,
 			HttpServletResponse res
 			) {
-		
-		System.out.println("여기서 testDto Bean 확인하기");
-		System.out.println(testDto3);
-		System.out.println(testA2);
 		
 		
 		System.out.println(b);

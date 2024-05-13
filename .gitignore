@@ -1,6 +1,7 @@
 .metadata/
 Servers/
 keyproperties/
+#*.properties
 target/
 *.class
 pom.xml.tag
