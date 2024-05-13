@@ -4,8 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-<!-- 
-	<bean id="testDto" class="kh.mclass.test1r.sub.model.dto.TestDto">
+	<bean id="testDto" class="kh.mclass.test1r.sub.model.dto.TestDto" init-method="init">
 		<constructor-arg name="a2" value="첫값2"></constructor-arg>
 		<property name="a1" value="세터이용해서 값넣기"></property>
 		<property name="testFileDto" ref="testFileDto"></property>
@@ -14,6 +13,5 @@
 		<constructor-arg name="filePath" value="aaa.jpg"></constructor-arg>
 		<constructor-arg name="fileType" value="jpg"></constructor-arg>
 	</bean>
- -->
  	
 </beans>

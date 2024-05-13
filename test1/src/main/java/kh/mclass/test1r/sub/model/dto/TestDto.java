@@ -2,11 +2,14 @@ package kh.mclass.test1r.sub.model.dto;
 
 import org.springframework.stereotype.Component;
 
-@Component("testDto")
+//@Component("testDto")
 public class TestDto {
 	private String a1;
 	private String a2;
 	private TestFileDto testFileDto;
+	private void init() {
+		System.out.println("init");
+	}
 	@Override
 	public String toString() {
 		return "TestDto [a1=" + a1 + ", a2=" + a2 + ", testFileDto=" + testFileDto + "]";

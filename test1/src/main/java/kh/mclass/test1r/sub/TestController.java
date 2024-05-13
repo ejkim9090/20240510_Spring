@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kh.mclass.test1r.sub.model.dto.TestDto;
 
@@ -25,7 +26,8 @@ public class TestController {
 	
 	//@RequestMapping(method = RequestMethod.GET, path = "/testget")
 	@GetMapping("/test")
-	public String method1(String a,
+	public String method1(
+			@RequestParam(defaultValue = "aaa", required = false, name = "a") String b,
 			HttpServletRequest request,  
 			HttpSession ss,
 			HttpServletResponse res
@@ -33,7 +35,7 @@ public class TestController {
 		System.out.println("여기서 testDto Bean 확인하기");
 		System.out.println(testDto);
 		
-		System.out.println(a);
+		System.out.println(b);
 		System.out.println(request.getParameter("a"));
 		request.getSession().setAttribute("b", "세션값");
 		ss.setAttribute("c", "세션2");
