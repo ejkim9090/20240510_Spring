@@ -32,10 +32,29 @@
 		<level value="info" />
 	</logger>
 
+	<!-- JDBC -->
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="trace" />
+	</logger>
+	<logger name="jdbc.sqltiming" additivity="false">
+		<level value="trace" />
+	</logger>
+	<logger name="jdbc.audit" additivity="false">
+		<level value="trace" />
+	</logger>
+	<logger name="jdbc.resultset" additivity="false">
+		<level value="trace" />
+	</logger>
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="trace" />
+	</logger>
+	<logger name="jdbc.connection" additivity="false">
+		<level value="trace" />
+	</logger>
 	
 	<!-- Root Logger -->
 	<root>
-		<priority value="info" />
+		<priority value="trace" />
 		<appender-ref ref="console" />
 	</root>
 	
