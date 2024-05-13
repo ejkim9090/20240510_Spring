@@ -4,7 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="testDto" class="kh.mclass.test1r.sub.model.dto.TestDto" init-method="init">
+	
+	<bean id="testDto3" class="kh.mclass.test1r.sub.model.dto.TestDto" init-method="init" lazy-init="default">
+		<constructor-arg name="a2" value="3첫값2"></constructor-arg>
+		<property name="a1" value="3세터이용해서 값넣기"></property>
+		<property name="testFileDto" ref="testFileDto"></property>
+	</bean>
+	<bean id="testDto2" class="kh.mclass.test1r.sub.model.dto.TestDto" init-method="init" lazy-init="default">
+		<constructor-arg name="a2" value="2첫값2"></constructor-arg>
+		<property name="a1" value="2세터이용해서 값넣기"></property>
+		<property name="testFileDto" ref="testFileDto"></property>
+	</bean>
+	<bean id="testDto" class="kh.mclass.test1r.sub.model.dto.TestDto" init-method="init" lazy-init="default">
 		<constructor-arg name="a2" value="첫값2"></constructor-arg>
 		<property name="a1" value="세터이용해서 값넣기"></property>
 		<property name="testFileDto" ref="testFileDto"></property>
