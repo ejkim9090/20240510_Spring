@@ -14,9 +14,12 @@ public class MemberDao {
 	private SqlSession sqlSession;
 	
 	public List<MemberRes> selectList(){
+		
 		return sqlSession.selectList("Member.list");
 	}
-	
+	public MemberRes selectOne(String memId){
+		return sqlSession.selectOne("Member.one", memId);
+	}
 	public int insert(){
 		//sqlSession.insert("Member.insert");
 		return 0;

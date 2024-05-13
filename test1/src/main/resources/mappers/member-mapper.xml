@@ -4,4 +4,7 @@
 	<select id="list" resultType="MemberRes">
 		select * from member
 	</select>
+	<select id="one" resultType="MemberRes" parameterType="string">
+		select * from member where mem_id = #{memId}
+	</select>
 </mapper>
