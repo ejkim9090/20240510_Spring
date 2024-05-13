@@ -18,11 +18,11 @@ public class MemberDao {
 	}
 	
 	public int insert(){
-		sqlSession.insert("Member.insert");
+		//sqlSession.insert("Member.insert");
 		return 0;
 	}
 	public int update(){
-		sqlSession.update("Member.insert");
+		//sqlSession.update("Member.insert");
 		return 0;
 	}
 }

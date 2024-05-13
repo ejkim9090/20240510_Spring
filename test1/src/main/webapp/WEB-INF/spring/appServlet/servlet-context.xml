@@ -23,8 +23,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kh.mclass.test1r" >
-	</context:component-scan>
+	<context:component-scan base-package="kh.mclass.test1r"></context:component-scan>
 	
 
 	
