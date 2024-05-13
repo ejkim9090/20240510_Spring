@@ -32,29 +32,36 @@
 		<level value="info" />
 	</logger>
 
+     <Logger name="org.springframework">
+         <level value="info" />
+     </Logger>
+
 	<!-- JDBC -->
-	<logger name="jdbc.sqlonly" additivity="false">
-		<level value="trace" />
+	<logger name="jdbc.sql" >
+		<level value="debug" />
 	</logger>
-	<logger name="jdbc.sqltiming" additivity="false">
-		<level value="trace" />
+	<logger name="jdbc.sqlonly" >
+		<level value="info" />
 	</logger>
-	<logger name="jdbc.audit" additivity="false">
-		<level value="trace" />
+	<logger name="jdbc.sqltiming" >
+		<level value="debug" />
 	</logger>
-	<logger name="jdbc.resultset" additivity="false">
-		<level value="trace" />
+	<logger name="jdbc.audit" >
+		<level value="debug" />
 	</logger>
-	<logger name="jdbc.resultsettable" additivity="false">
-		<level value="trace" />
+	<logger name="jdbc.resultset" >
+		<level value="info" />
 	</logger>
-	<logger name="jdbc.connection" additivity="false">
-		<level value="trace" />
+	<logger name="jdbc.resultsettable" >
+		<level value="debug" />
+	</logger>
+	<logger name="jdbc.connection">
+		<level value="info" />
 	</logger>
 	
 	<!-- Root Logger -->
 	<root>
-		<priority value="trace" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 	</root>
 	
