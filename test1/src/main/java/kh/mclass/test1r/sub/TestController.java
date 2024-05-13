@@ -42,4 +42,19 @@ public class TestController {
 		request.setAttribute("serverTime", testService.method1());
 		return "home";
 	}
+	@GetMapping("/test/one")
+	public String method2(
+			@RequestParam(defaultValue = "aaa", required = false, name = "a") String b,
+			HttpServletRequest request,  
+			HttpSession ss,
+			HttpServletResponse res
+			) {
+		System.out.println(b);
+		System.out.println(request.getParameter("a"));
+		request.getSession().setAttribute("b", "세션값");
+		ss.setAttribute("c", "세션2");
+		
+		request.setAttribute("serverTime", testService.method1());
+		return "home";
+	}
 }

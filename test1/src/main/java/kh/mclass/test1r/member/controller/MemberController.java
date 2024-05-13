@@ -22,4 +22,12 @@ public class MemberController {
 		model.addAttribute("memberlist", memberService.selectList());
 		return "member/list";
 	}
+	@GetMapping("/member/one")
+	public String selectList(
+			Model model
+			, String memId
+			) {
+		model.addAttribute("member", memberService.selectOne(memId));
+		return "member/one";
+	}
 }

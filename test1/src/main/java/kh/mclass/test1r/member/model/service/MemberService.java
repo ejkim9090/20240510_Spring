@@ -17,12 +17,13 @@ public class MemberService {
 	
 	//@Transactional
 	public List<MemberRes> selectList(){
+		
 		memberDao.insert();
 		memberDao.update();
 		
 		return memberDao.selectList();
 	}
-	public void insertAbc() {
-		
+	public MemberRes selectOne(String memId){
+		return memberDao.selectOne(memId);
 	}
 }
