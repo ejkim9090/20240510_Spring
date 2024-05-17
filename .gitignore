@@ -1,6 +1,7 @@
 .metadata/
 Servers/
 keyproperties/
+application.properties
 #*.properties
 target/
 *.class
