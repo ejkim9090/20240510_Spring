@@ -35,7 +35,9 @@
      <Logger name="org.springframework">
          <level value="info" />
      </Logger>
-
+     <Logger name="org.springframework.jndi">
+         <level value="info" />
+     </Logger>
 	<!-- JDBC -->
 	<logger name="jdbc.sql" >
 		<level value="debug" />
@@ -61,7 +63,7 @@
 	
 	<!-- Root Logger -->
 	<root>
-		<priority value="debug" />
+		<priority value="info" />
 		<appender-ref ref="console" />
 	</root>
 	

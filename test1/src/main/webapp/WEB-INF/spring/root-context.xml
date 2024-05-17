@@ -4,16 +4,29 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<context:property-placeholder location="classpath:keyproperties/db.properties"/>
+	<context:property-placeholder location="classpath:keyproperties/db.properties" />
 	
 	<!-- DB연동관련 Bean들 -->
 	<!-- DBCP -->
+	<!-- 
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="${db.driverClassName}"></property>
+		<property name="jdbcUrl" value="${db.url}"></property>
+		<property name="username" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+	</bean>
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig"></constructor-arg>
+	</bean>
+	 -->
 	<bean class="org.apache.commons.dbcp2.BasicDataSource" id="dataSource" destroy-method="close">
 		<property name="driverClassName" value="${db.driverClassName}"></property>
 		<property name="url" value="${db.url}"></property>
@@ -49,12 +62,18 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
 	</aop:config>
 	-->
-	
-	
-	
-	
-	
-	
-	
+	<!-- 	
+	<bean class="kh.mclass.test1r.common.LoginInterceptor" id="loginInterceptor"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/login"/>
+			<mvc:exclude-mapping path="/join"/>
+			<mvc:exclude-mapping path="/main/*"/>
+			<mvc:exclude-mapping path="/resources/**"/>
+			<ref bean="loginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	 -->
 	
 </beans>

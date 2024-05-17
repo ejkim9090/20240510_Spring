@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,8 +25,17 @@ public class TestController {
 	@Autowired
 	private TestService testService;
 	
-	//@RequestMapping(method = RequestMethod.GET, path = "/testget")
-	@GetMapping("/test")
+	@GetMapping("/login")
+	public String login(
+			Model model
+			, String memId
+			) {
+		//model.addAttribute("member", memberService.selectOne(memId));
+		return "home";
+	}
+	
+	//@RequestMapping(method = RequestMethod.GET, path = "/testget" )
+	@GetMapping(path = "/test" )
 	public String method1(
 			@RequestParam(defaultValue = "aaa", required = false, name = "a") String b,
 			HttpServletRequest request,  
