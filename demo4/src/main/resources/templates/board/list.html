@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Board / List html</h1>
+<p th:text="${board.boardId}"></p>
+<p th:text="${board.boardTitle}"></p>
+<p th:text="${board.boardContent}"></p>
+<div th:object="${session.demosession}">
+<div th:object="${session.demosession}">
+	<p th:text="*{boardId}"></p>
+	<p th:text="*{boardTitle}"></p>
+	<p th:text="*{boardContent}"></p>
+</div>
+<div th:object="${board}">
+	<p th:text="*{boardId}"></p>
+	<p th:text="*{boardTitle}"></p>
+	<p th:text="*{boardContent}"></p>
+</div>
+
+</body>
+</html>

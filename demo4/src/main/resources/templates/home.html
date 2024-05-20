@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Home html</h1>
+
+<!-- Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting) -->
+<a href="read.html" th:href="@{http://localhost:8080/demo4/board/(boardId=3)}">view</a>
+
+<!-- Will produce '/gtvg/order/details?orderId=3' (plus rewriting) -->
+<a href="read.html" th:href="@{/board/(boardId=4)}">view</a>
+
+<!-- Will produce '/gtvg/order/3/details' (plus rewriting) -->
+<a href="read.html" th:href="@{/board/{orderId}(orderId=5)}">view</a>
+
+</body>
+</html>
