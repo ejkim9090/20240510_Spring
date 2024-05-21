@@ -1,5 +1,11 @@
 package kh.mclass.demo4;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,20 +17,34 @@ import kh.mclass.demo4.domain.BoardEntity;
 
 @Controller
 public class DemoController {
+//	@Autowired
+//	private CrawlingHotel crawlingHotel;
+	
+	@GetMapping("crwaling/start")
+	public String crwalingStart() {
+		new CrawlingHotel().run();
+		return "home";
+	}
+	
+	
+	@GetMapping("common/header")
+	public void commonHeader() {
+	}
 	@GetMapping("home")
 	public String home() {
 		
 		return "home";
 	}
 	@GetMapping("board/list")
-	public void boardlist(Model model, HttpSession session) {
+	public void boardlist(Model model) {
 		// DB연동
-		BoardEntity dto = new BoardEntity("12", "12제목입니다.", "12내용입니다.");
-		model.addAttribute("board", dto);
-		BoardEntity sessionDto = new BoardEntity("00", "00session제목", "00session내용");
-		session.setAttribute("demosession", sessionDto);
-//		model.addAttribute("demosession", sessionDto);
-		//return "home";
+		List<BoardEntity> boardlist = new ArrayList<>();
+		for(int i=0; i<10; i++) {
+			BoardEntity dto = new BoardEntity(i+"", i+"제목입니다.", i+"내용입니다.");
+			boardlist.add(dto);
+		}
+		model.addAttribute("boardlist", boardlist);
+//		return "board/list";
 	}
 	@GetMapping("board/{boardId}")
 	public String boardRead(Model model, @PathVariable String boardId) {

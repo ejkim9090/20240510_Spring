@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* common/header.html */
+.navbar ul li{
+	list-style-type: none;
+/* 	display: flex; 
+	padding: 20px;  */
+	display: inline-block;
+}
