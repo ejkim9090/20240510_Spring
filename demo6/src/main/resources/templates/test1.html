@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>test1</h1>
+
+<form th:action="@{/my/test1}" method="post"  th:object="${joinDto}">
+	<input type="text" name="username"
+		th:field="*{username}"
+	 	class="form-control"
+		/>
+	<input type="password" name="pwd"
+		 th:field="*{pwd}"
+		 class="form-control"
+		 />
+	<input type="text" name="email"/>
+	<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="fieldError">Incorrect data</p>
+	<p th:if="${#fields.hasErrors('pwd')}" th:errors="*{pwd}" class="fieldError">Incorrect data</p>
+	<input type="submit" value="validtest"/>
+</form>
+</body>
+</html>
