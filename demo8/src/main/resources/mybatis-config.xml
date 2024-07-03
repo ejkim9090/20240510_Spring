@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="callSettersOnNulls" value="true" />
+	</settings>
+	<typeAliases>
+		<package name="mclass.store.tripant.member.domain" />
+		<package name="mclass.store.tripant.store.domain" />
+		<package name="mclass.store.tripant.plan.domain" />
+		<package name="mclass.store.tripant.trip.domain" />
+		<package name="mclass.store.tripant.diary.domain" />
+		<package name="mclass.store.tripant.place.domain" />
+		<package name="mclass.store.tripant.admin.domain" />
+	</typeAliases>
+	<typeHandlers>
+		<typeHandler javaType="java.lang.String" jdbcType="CLOB" handler="org.apache.ibatis.type.ClobTypeHandler" />
+	</typeHandlers>
+</configuration>

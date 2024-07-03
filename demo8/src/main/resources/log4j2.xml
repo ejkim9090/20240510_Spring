@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="DEBUG">
+	<Properties>
+		<Property name="LOG_DATEFORMAT_PATTERN">{HH:mm:ss.SSS}</Property>
+		<Property name="LOG_LEVEL_PATTERN">{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue} %style{%-35.35C{1.}}{cyan}:%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</Property>
+		<Property name="LOG_LEVEL_PATTERN_ASPECT">{-%5p}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green, DEBUG=green bold, TRACE=blue}:%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</Property>
+	</Properties>
+	<Appenders>
+		<Console name="ConsoleLogAspect" target="SYSTEM_OUT">
+			<PatternLayout disableAnsi="false"
+				pattern="%d${LOG_DATEFORMAT_PATTERN} %highlight${LOG_LEVEL_PATTERN_ASPECT}" />
+		</Console>
+		<Console name="ConsoleLog" target="SYSTEM_OUT">
+			<PatternLayout disableAnsi="false"
+				pattern="%d${LOG_DATEFORMAT_PATTERN} %highlight${LOG_LEVEL_PATTERN}" />
+		</Console>
+		<RollingFile name="FileLog" fileName="./logs/spring.log"
+			filePattern="./logs/spring-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="${LOG_PATTERN}" charset="UTF-8" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+				<SizeBasedTriggeringPolicy size="10000KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20"
+				fileIndex="min" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="ConsoleLog" />
+			<AppenderRef ref="FileLog" />
+		</Root>
+		<Logger name="kh.mclass.demo8" level="info" additivity="false">
+			<AppenderRef ref="ConsoleLogAspect" />
+		</Logger>
+		<Logger name="kh.mclass.demo8" level="info" additivity="false">
+			<AppenderRef ref="ConsoleLog" />
+		</Logger>
+		
+		<!-- SQL Logger -->
+		<logger name="jdbc.connection" level="warn" additivity="false">
+			<appender-ref ref="ConsoleLogAspect" />
+		</logger>
+		<logger name="jdbc.audit" level="warn" additivity="false">
+			<appender-ref ref="ConsoleLogAspect" />
+		</logger>
+		<logger name="jdbc.resultset" level="warn" additivity="false">
+			<appender-ref ref="ConsoleLogAspect" />
+		</logger>
+		<logger name="jdbc.resultsettable" level="info" additivity="false">
+			<appender-ref ref="ConsoleLogAspect" />
+		</logger>
+		<!-- ? real data  -->
+		<logger name="jdbc.sqlonly" level="warn" additivity="false">
+			<appender-ref ref="ConsoleLogAspect" />
+		</logger>
+		<!-- ? real data + {executed in 3 msec}  -->
+		<logger name="jdbc.sqltiming" level="info" additivity="false">
+			<appender-ref ref="ConsoleLogAspect" />
+		</logger>
+
+	</Loggers>
+</Configuration>
