@@ -2,8 +2,7 @@
 Servers/
 keyfiles/
 keyproperties/
-application.properties
-#*.properties
+logs/
 target/
 *.class
 pom.xml.tag
