@@ -1,5 +1,6 @@
 .metadata/
 Servers/
+keyfiles/
 keyproperties/
 application.properties
 #*.properties
